@@ -1,0 +1,44 @@
+Dataset Setup Steps
+---------------------
+
+1) Copy the {cub,flowers}_metadata.json and {cub,flowers}_dataset.py files into the same folder as the proj5-object-detection.ipynb file.
+
+2) Within that same folder, download and setup the CUB-200-2011 (1.1GB) dataset:
+    wget http://www.vision.caltech.edu/visipedia-data/CUB-200-2011/CUB_200_2011.tgz
+    tar xvfz CUB_200_2011.tgz
+    ln -s CUB_200_2011/images .    OR    mv CUB_200_2011/images .
+
+
+3) Do the same for the Oxford-Flowers-102 (350MB) dataset:
+    wget http://www.robots.ox.ac.uk/~vgg/data/flowers/102/102flowers.tgz
+    tar xvfz 102flowers.tgz
+    [the jpg folder should be right there in the directory]
+
+4) You should now be able to access the Datasets from within your notebook using the following syntax/commands:
+
+import cub_dataset
+CUB = cub_dataset.CUB_Dataset()
+CUB_TRN = CUB.getTrainingSet()
+CUB_TST = CUB.getTestSet()
+
+for imgnum in CUB_TRN:
+    f,d = CUB.getSIFTfeatures(imgnum,bbox_only=True) # Get only the features within the bounding box
+
+# If you wanted to display images, you can get them with...
+img1 = CUB.getImage(1,bbox_only=False) # Get the whole image
+img2 = CUB.getImage(1,bbox_only=True)  # Get only the bounding box
+
+
+import flowers_dataset
+FL  = flowers_dataset.Flowers_Dataset()
+FL_TRN = FL.getTrainingSet()
+FL_TST = FL.getTestSet()
+
+for imgnum in FL_TRN:
+    f,d = FL.getSIFTfeatures(imgnum) # The flowers dataset does not include bounding boxes.
+
+
+
+
+Test Set A is composed of (i) the positive images, namely those in CUB.getTestSet() and,
+                          (ii) the negative images, namely those in FL.getTestSet().

@@ -1,0 +1,1 @@
+This is a deep learning project using Pytorch to classify cars according to their model.  It uses the Stanford Cars Dataset, which can be found here:  https://ai.stanford.edu/~jkrause/cars/car_dataset.html.  In order to save space, I have deleted the images and tar files from this folder.  You will need to re-download the tar files and extract them in order to use this project.

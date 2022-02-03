@@ -1,0 +1,1 @@
+This is a project I created for my Computer Vision class.  It stitches images together to make a panorama.

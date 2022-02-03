@@ -1,0 +1,6 @@
+Raw text http://byu.edu
+Raw bytes 40 e6 87 47 47 03 a2 f2   f6 27 97 52 e6 56 47 50
+ec 11 ec 
+Barcode format QR_CODE
+Parsed Result Type URI
+Parsed Result http://byu.edu
